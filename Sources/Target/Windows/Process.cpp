@@ -411,8 +411,9 @@ Process::makeMemoryWritable(Address const &address, size_t length,
     if (!region.protection || !(region.protection & kProtectionWrite)) {
       LPVOID allocError = VirtualAllocEx(
           _handle, reinterpret_cast<LPVOID>(region.start.value()),
-          region.length, MEM_COMMIT, convertMemoryProtectionToWindows(
-                                         region.protection | kProtectionWrite));
+          region.length, MEM_COMMIT,
+          convertMemoryProtectionToWindows(region.protection |
+                                           kProtectionWrite));
 
       // The region could have been modified even if `VirtualAllocEx` failed.
       modifiedRegions.push_back(region);

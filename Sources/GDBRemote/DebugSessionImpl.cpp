@@ -904,8 +904,9 @@ DebugSessionImplBase::onResume(Session &session,
       }
       excluded.insert(thread);
     } else {
-      DS2LOG(Warning, "cannot resume pid %" PRIu64 " tid %" PRIu64
-                      ", action %d not yet implemented",
+      DS2LOG(Warning,
+             "cannot resume pid %" PRIu64 " tid %" PRIu64
+             ", action %d not yet implemented",
              (uint64_t)_process->pid(), (uint64_t)thread->tid(), action.action);
       continue;
     }
