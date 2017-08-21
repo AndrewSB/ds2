@@ -12,7 +12,7 @@
 top="$(git rev-parse --show-toplevel)"
 source "$top/Support/Scripts/common.sh"
 
-cformat="clang-format-4.0"
+cformat=${CFORMAT:-clang-format-4.0}
 
 "$top/Support/Testing/Travis/travis-hacks.sh"
 
